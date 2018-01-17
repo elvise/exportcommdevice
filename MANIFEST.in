@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include exportcommdevice *.css
+recursive-include exportcommdevice *.csv
+recursive-include exportcommdevice *.html
+recursive-include exportcommdevice *.ico
+recursive-include exportcommdevice *.js
+recursive-include exportcommdevice *.json
+recursive-include exportcommdevice *.md
+recursive-include exportcommdevice *.png
+recursive-include exportcommdevice *.py
+recursive-include exportcommdevice *.svg
+recursive-include exportcommdevice *.txt
+recursive-exclude exportcommdevice *.pyc
