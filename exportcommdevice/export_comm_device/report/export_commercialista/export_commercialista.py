@@ -57,3 +57,5 @@ def get_data(filters):
 	ORDER BY
 		`tabSales Invoice`.posting_date desc, `tabSales Invoice`.posting_time desc
 	""".format(conditions=conditions, match_cond = get_match_cond('Sales Invoice')), filters)
+	
+	return columns, data
