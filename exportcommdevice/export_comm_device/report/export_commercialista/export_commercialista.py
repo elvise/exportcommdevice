@@ -17,8 +17,12 @@ def get_data(filters):
 		conditions += " and `tabSales Invoice`.posting_date >= %(from_date)s"
 	if filters.to_date:
 		conditions += " and `tabSales Invoice`.posting_date <= %(to_date)s"
+	if filters.store:
+		conditions += " and `tabSales Invoice`.store = %(store)s"
 
-	columns = [_("Sales Invoice") + ":Link/Sales Invoice:120",
+	columns = [
+			_("Store") + ":Link/Store:120",
+			_("Sales Invoice") + ":Link/Sales Invoice:120",
 			_("Posting Date") + ":Date:120",
 			_("Mode Of Payment") + "::120",
 			_("Customer") + ":Link/Customer:120",
@@ -36,6 +40,7 @@ def get_data(filters):
 
 	data = frappe.db.sql("""
 		SELECT
+		`tabSales Invoice`.store,
 		`tabSales Invoice`.name,
 		`tabSales Invoice`.posting_date,
 		`tabSales Invoice`.mode_of_payment,
@@ -57,5 +62,5 @@ def get_data(filters):
 	ORDER BY
 		`tabSales Invoice`.posting_date desc, `tabSales Invoice`.posting_time desc
 	""".format(conditions=conditions, match_cond = get_match_cond('Sales Invoice')), filters)
-	
+
 	return columns, data

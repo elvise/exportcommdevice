@@ -5,6 +5,13 @@
 frappe.query_reports["Export Commercialista"] = {
 	"filters": [
 		{
+			"fieldname":"store",
+			"label": __("Store"),
+			"fieldtype": "Link",
+			"options": "Store"
+		},
+
+		{
 			"fieldname":"from_date",
 			"label": __("From Date"),
 			"fieldtype": "Date",
